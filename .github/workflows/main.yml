@@ -6,9 +6,9 @@ jobs:
     if: github.ref == 'refs/heads/master'
     steps:
       - name: checkout
-        uses: actions/checkout@v3.0.0
+        uses: actions/checkout@a12a3943b4bdde767164f792f33f40b04645d846 # v3.0.0
       - name: build_and_deploy
-        uses: shalzz/zola-deploy-action@v0.19.1
+        uses: shalzz/zola-deploy-action@e4233e9a9fdc50632e17e42f06e647dc6c44bebd # v0.19.1
         env:
           PAGES_BRANCH: gh-pages
           TOKEN: ${{ secrets.GITHUB_TOKEN }}
