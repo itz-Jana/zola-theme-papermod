@@ -26,8 +26,8 @@
 <link rel="canonical" href="{{ current_url }}">
 {% endif %}
 
-<link rel="stylesheet" href="{{ get_url(path='css/styles.css') }}">
-<link rel="stylesheet" href="{{ get_url(path='css/override.css') }}">
+<link rel="stylesheet" href="{{ get_url(path='css/styles.css', cachebust=true) }}">
+<link rel="stylesheet" href="{{ get_url(path='css/override.css', cachebust=true) }}">
 
 {% block head_favicons %}
 {# /* Favicons */}

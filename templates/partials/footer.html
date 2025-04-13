@@ -22,75 +22,14 @@
 {#- partial "extend_footer.html" . #}
 
 {% if config.extra.papermod.show_scroll_to_top|default(value=true) %}
-<script>
-    var mybutton = document.getElementById("top-link");
-    window.onscroll = function () {
-        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
-            mybutton.style.visibility = "visible";
-            mybutton.style.opacity = "1";
-        } else {
-            mybutton.style.visibility = "hidden";
-            mybutton.style.opacity = "0";
-        }
-    };
-
-</script>
+<script src="{{ get_url(path='js/scroll-to-top.js', cachebust=true) | safe }}" integrity="sha384-{{ get_hash(path='js/scroll-to-top.js', sha_type=384, base64=true) | safe }}"></script>
 {% endif %}
 
 {% if config.extra.papermod.show_code_copy_buttons|default(value=true) %}
-<script>
-    document.querySelectorAll('pre > code').forEach((codeblock) => {
-        const container = codeblock.parentNode.parentNode;
-
-        const copybutton = document.createElement('button');
-        copybutton.classList.add('copy-code');
-        copybutton.innerText = 'copy';
-        function copyingDone() {
-            copybutton.innerText = 'copied!';
-            setTimeout(() => {
-                copybutton.innerText = 'copy';
-            }, 2000);
-        }
-
-        copybutton.addEventListener('click', (cb) => {
-            if ('clipboard' in navigator) {
-                var content = codeblock.textContent;
-                if(codeblock.firstChild.tagName == 'TABLE') {
-                    content = Array(...codeblock.firstChild.getElementsByTagName('span')).map((span) => { return span.textContent; }).join('');
-                }
-                navigator.clipboard.writeText(content);
-                copyingDone();
-                return;
-            }
-
-            const range = document.createRange();
-            range.selectNodeContents(codeblock);
-            const selection = window.getSelection();
-            selection.removeAllRanges();
-            selection.addRange(range);
-            try {
-                document.execCommand('copy');
-                copyingDone();
-            } catch (e) { };
-            selection.removeRange(range);
-        });
-
-        if (container.classList.contains("highlight")) {
-            container.appendChild(copybutton);
-        } else if (container.parentNode.firstChild == container) {
-            // td containing LineNos
-        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
-            // table containing LineNos and code
-            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
-        } else {
-            // code blocks not having highlight as parent class
-            codeblock.parentNode.appendChild(copybutton);
-        }
-    });
-</script>
+<script src="{{ get_url(path='js/copy-code.js', cachebust=true) | safe }}"></script>
 {% endif %}
 
 {% if page.extra.is_search_page %}
-<script src="{{ get_url(path='elasticlunr.min.js') | safe }}"></script>
-<script src="{{ get_url(path='js/search.js') | safe }}"></script>
+<script src="{{ get_url(path='elasticlunr.min.js', cachebust=true) | safe }}"></script>
+<script src="{{ get_url(path='js/search.js', cachebust=true) | safe }}"></script>
 {% endif %}
