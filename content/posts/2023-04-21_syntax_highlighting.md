@@ -16,11 +16,8 @@ readers with a preview.
 
 [extra.papermod]
 title = "PaperMod"
-default_theme = "auto"
-theme = "light"
 language_direction = "auto"
 keywords = ["keyword1", "keyword2", "keyword3"]
-disable_theme_toggle = false
 show_code_copy_buttons = true
 show_reading_time = true
 show_word_count = false
