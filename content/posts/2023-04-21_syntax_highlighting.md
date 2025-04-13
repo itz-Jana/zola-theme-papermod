@@ -24,7 +24,6 @@ show_word_count = false
 show_post_nav_links = true
 show_post_meta = true
 default_toc_open = false
-edit_post_url = "https://github.com/cydave/zola-theme-papermod/tree/master"
 copyright = ""
 date_format = "%Y-%m-%d"
 ```
