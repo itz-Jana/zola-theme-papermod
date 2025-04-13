@@ -684,7 +684,6 @@ pre:hover .copy-code {
   margin-bottom: 5px;
 }
 .post-tags a,
-.share-buttons,
 .paginav {
   border-radius: var(--radius);
   background: var(--code-bg);
@@ -702,19 +701,6 @@ pre:hover .copy-code {
 .post-tags a:hover,
 .paginav a:hover {
   background: var(--border);
-}
-.share-buttons {
-  margin: 14px 0;
-  padding-inline-start: var(--radius);
-  display: flex;
-  justify-content: center;
-  overflow-x: auto;
-}
-.share-buttons a {
-  margin-top: 10px;
-}
-.share-buttons a:not(:last-of-type) {
-  margin-inline-end: 12px;
 }
 h1:hover .anchor,
 h2:hover .anchor,
